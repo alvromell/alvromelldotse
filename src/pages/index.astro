@@ -1,10 +1,12 @@
 ---
-import Layout from '../layouts/BaseLayout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import Card from '../components/AlbumCard.astro';
 import Footer from '../components/Footer.astro';
+import {PERSONAL_INFO, ROUTES, SOCIAL} from '../consts';
+
 ---
 
-<Layout title="Alv Romell.">
+<BaseLayout title="Alv Romell.">
 	<div class="flex flex-col flex-grow h-full lg:max-w-4xl m-auto max-h-[44rem] max-w-3xl md:p-6 w-full">
 		<main transition:animate="slide">
 			<h1 class="text-3xl md:text-4xl font-semibold mb-4">Hi!</h1>
@@ -12,12 +14,18 @@ import Footer from '../components/Footer.astro';
 			<p class="relative md:text-base lg:text-xl text-slate-500">
 				I work as an IT-consultant at <a href="https://netcompany.com/" target="_blank" class="font-semibold text-gradient link-underline">Netcompany</a> in Copenhagen. 
 				<br>In my spare time, I like to take photos. 
-				<br>Feel free to check out some of my work <a href="/photography" class="font-bold text-gradient link-underline">here</a>.
+				<br>Feel free to check out some of my pictures <a href="/photography" class="font-bold text-gradient link-underline">here</a>.
 			</p>
+			<div class="flex gap-4 mt-16 mr-auto">
+				{SOCIAL.map(social => <a class="link-underline" href={social.href} target="_blank">{social.label}</a>)}
+			</div>
 		</main>
-		<Footer class="flex flex-col justify-end"/>
+		<footer class="flex flex-col items-center relative text-sm text-slate-400">
+			<p>© 2023 - Alv Romell</p>
+			<p>Built with <a class="link-underline" href="https://astro.build/" target="_blank">Astro</a></p>
+		</footer>
 	</div>
-</Layout>
+</BaseLayout>
 
 <style>
 	main {
@@ -41,24 +49,5 @@ import Footer from '../components/Footer.astro';
 	}
 </style>
 <style is:global>
-	.link-underline{
-		position: relative;
-	}
-	.link-underline::after{
-		content:"";
-		position: absolute;
-		width: 100%;
-		height: 2px;
-		top: 105%;
-		left: 0;
-		border-radius: 1px;
-		background-image: var(--link-gradient);
-		opacity: 0.75;
-		transform: scaleX(0);
-		transform-origin: left;
-		transition: ease-in-out 400ms;
-	}
-	.link-underline:hover::after{
-		transform: scaleX(1);
-	}
+	
 </style>

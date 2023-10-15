@@ -1,6 +1,8 @@
 --- 
 import { ViewTransitions } from 'astro:transitions';
 import '@fontsource-variable/source-code-pro';
+import '../styles/global.css'
+
 
 interface Props {
 	title: string;
@@ -24,25 +26,4 @@ const { title } = Astro.props;
 		<slot />
 	</body>
 </html>
-<style is:global>
-	:root {
-		--accent: 252, 161, 125;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 110, 90, 200;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), rgb(var(--accent-light)) 30%, white 60%);
-		--link-gradient: linear-gradient(45deg, rgb(var(--accent-dark)), rgb(var(--accent)));
-		--text-primary: blanchedalmond;
-		--background-dark: #13151A;
-	}
-	html, body {
-		font-family: 'Source Code Pro Variable', system-ui, sans-serif;
-		background: var(--background-dark);
-		color:var(--text-primary);
-		height: 100%;
-	}
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
-</style>
 
