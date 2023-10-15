@@ -1,0 +1,29 @@
+---
+import Gallery from "../layouts/BaseLayout.astro";
+import AlbumList from "../components/AlbumList.astro";
+import { getCollection } from 'astro:content';
+import Footer from "../components/Footer.astro";
+
+const albums = await getCollection("albums");
+--- 
+<Gallery title="Alv's photos" transition:animate="slide">
+    <h1 class="text-4xl md:text-6xl text-left font-bold mt-10 mb-4 md:mb-6 mx-auto">photography</h1>
+    
+    <main>
+        <p class="mb-2">Here you can find some photos I've taken. Click the links to see the full album.</p>
+        <p class="mb-2">I hope you enjoy.</p>
+        <AlbumList albums={albums}></AlbumList>
+    </main>
+	<Footer/>
+</Gallery>
+
+<style>
+    main {
+		margin: auto;
+		width: 800px;
+		max-width: calc(100% - 6rem);
+		line-height: 1.6;
+		height: auto;
+	}
+    
+</style>

@@ -1,0 +1,48 @@
+--- 
+import { ViewTransitions } from 'astro:transitions';
+import '@fontsource-variable/source-code-pro';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Personal website of Alv Romell">
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/ar.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<ViewTransitions/>
+		<title>{title}</title>
+	</head>
+	<body class="flex flex-col items-center min-w-[20rem]">
+		<slot />
+	</body>
+</html>
+<style is:global>
+	:root {
+		--accent: 252, 161, 125;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 110, 90, 200;
+		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), rgb(var(--accent-light)) 30%, white 60%);
+		--link-gradient: linear-gradient(45deg, rgb(var(--accent-dark)), rgb(var(--accent)));
+		--text-primary: blanchedalmond;
+		--background-dark: #13151A;
+	}
+	html, body {
+		font-family: 'Source Code Pro Variable', system-ui, sans-serif;
+		background: var(--background-dark);
+		color:var(--text-primary);
+		height: 100%;
+	}
+	code {
+		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+			Bitstream Vera Sans Mono, Courier New, monospace;
+	}
+</style>
+

@@ -1,0 +1,43 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+
+interface Props {
+	album: CollectionEntry<'albums'>
+}
+
+const { album } = Astro.props;
+---
+
+<a href={"/photography/"+album.slug} class="mt-4">
+	<div class="image-container relative overflow-hidden inline-block hover:shadow-2xl">
+		<Image src={album.data.heroImage} alt={"Album link: "+album.data.description}/>
+		<div class="description-overlay flex">
+			<span class="description mt-auto ml-4 md:ml-8 mb-4 md:mb-6 mr-8 md:mr-16">
+				<h2 class="text-xl md:text-4xl font-semibold">{album.data.title}</h2>
+				<p class="text-xs md:text-base text-slate-400">{album.data.date}</p>
+				<p class="text-xs md:text-base">{album.data.description}</p>
+			</span>
+		</div>
+	</div>
+</a>
+
+<style>
+	h2 {
+		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+	.description-overlay {
+		position: absolute;
+		top: 100%; /* Start hidden below the image */
+		height: 100%;
+		left: 0;
+		right: 0;
+		background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+		opacity: 0; /* Initially hidden */
+		transition: top 0.5s ease, opacity 0.5s ease;
+	}
+	.image-container:hover .description-overlay {
+		top: 0;
+		opacity: 1;
+	}
+</style>

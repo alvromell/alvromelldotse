@@ -1,0 +1,17 @@
+---
+import Header from "../components/Header.astro";
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<BaseLayout title={title} transition:animate="slide">
+    <div class="grid-cols-1 justify-items-center w-4/5 md:w-3/4 lg:w-2/3 m-auto">
+        <Header/>
+        <slot/>
+    </div>
+</BaseLayout>

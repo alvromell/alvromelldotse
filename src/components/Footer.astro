@@ -1,0 +1,17 @@
+---
+import {PERSONAL_INFO, ROUTES, SOCIAL} from '../consts';
+
+---
+
+<footer class="flex flex-col items-center text-slate-400 pb-2">
+    <div class="social flex gap-2">
+        {SOCIAL.map(social => <a href={social.href} target="_blank">{social.label}</a>)}
+    </div>
+    <nav>
+        <a href="/">HOME</a>
+    </nav>
+    <div class="relative text-sm">
+        © 2023 - Alv Romell - Built with <a class="link-underline" href="https://astro.build/" target="_blank">Astro</a>
+    </div>
+</footer>
+
