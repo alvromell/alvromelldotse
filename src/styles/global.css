@@ -9,7 +9,7 @@
     --background-dark: #13151A;
 }
 html, body {
-    font-family: 'Source Code Pro Variable', system-ui, sans-serif;
+    font-family: 'Rajdhani','Source Code Pro Variable', system-ui, sans-serif;
     background: var(--background-dark);
     color:var(--text-primary);
     height: 100%;
