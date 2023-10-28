@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.0.0",
+    "@fontsource-variable/josefin-sans": "^5.0.18",
     "@fontsource-variable/libre-franklin": "^5.0.16",
     "@fontsource-variable/source-code-pro": "^5.0.14",
     "@fontsource/rajdhani": "^5.0.8",

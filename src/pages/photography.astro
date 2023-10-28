@@ -1,6 +1,6 @@
 ---
 import Gallery from "../layouts/BaseLayout.astro";
-import AlbumList from "../components/AlbumList.astro";
+import AlbumCardList from "../components/AlbumCardList.astro";
 import { getCollection } from 'astro:content';
 import Footer from "../components/Footer.astro";
 
@@ -8,13 +8,13 @@ const albums = await getCollection("albums");
 --- 
 <Gallery title="Alv's photos" transition:animate="slide">    
     <main class="flex-col">
-        <div class="md:flex md:justify-between mt-16 mb-4 md:mb-16">
+        <div class="flex mustify-between mt-8 md:mt-16 mb-12 md:mb-16">
             <h1 class="text-4xl md:text-6xl font-bold">photography</h1>
             <a class="inline-block text-s md:text-base ml-auto mt-4 md:mt-auto link-underline" href="/">HOME</a>
         </div>
         <p class="mb-2">Here you can find some photos I've taken. Click the links to see the full album.</p>
         <p class="mb-2">I hope you enjoy.</p>
-        <AlbumList albums={albums}></AlbumList>
+        <AlbumCardList albums={albums}></AlbumCardList>
     </main>
 	<Footer/>
 </Gallery>
@@ -27,5 +27,4 @@ const albums = await getCollection("albums");
 		line-height: 1.6;
 		height: auto;
 	}
-    
 </style>

@@ -1,7 +1,7 @@
 ---
 title: Paracas
 description: A small town south of Lima, known for the Islas Ballistas, and Paracas Natural Reserve.
-date: Januari 2020
+date: Jan 2020
 heroImage: ./paracas-1.jpg
 images: [
             {img: ./paracas-1.jpg, alt: ""},

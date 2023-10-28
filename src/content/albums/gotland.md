@@ -1,6 +1,6 @@
 ---
 title: Gotland
-description: En tur runt Östergarn
+description: A trip around Östergarn, in the eastern parts of the island where our family has spent most summers.
 date: Aug 2022
 heroImage: ./gotland-1.jpg
 images: [

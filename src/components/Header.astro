@@ -2,13 +2,20 @@
 import {PERSONAL_INFO, ROUTES, SOCIAL} from '../consts';
 ---
 
-<header class="flex top-0 justify-between w-full py-6 ">
+<header class="flex sticky top-0 justify-between w-full py-6 bg--black">
     <nav>
         <a class="link-underline" href="/">HOME</a>
     </nav>
-    <div class="social flex gap-2 md:gap-4">
+    <div class="social flex gap-2 md:gap-6">
         <a class="link-underline" href="https://www.instagram.com/alvsphotos/" target="_blank">INSTAGRAM</a>
         <a class="link-underline" href="">LINKEDIN</a>
         <a class="link-underline" href="mailto:alvromell@gmail.com">EMAIL</a>
     </div>
 </header>
+
+<style>
+    header {
+        background-color: var(--background-dark);
+        z-index: 1;
+    }
+</style>
