@@ -1,6 +1,6 @@
 ---
 title: Helagsfjället
-description: A misty trek in Härjedalen
+description: A misty trek in Härjedalen.
 date: June 2020
 heroImage: ./helags-1.jpg
 images: [

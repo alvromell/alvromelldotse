@@ -12,6 +12,10 @@ export const ROUTES = [
     {
         href: '/photography',
         label: 'Photography'
+    },
+    {
+        href: '/about',
+        label: 'About'
     }
 ] as const;
 

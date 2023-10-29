@@ -1,80 +1,28 @@
 ---
+import Header from '@components/Header.astro';
+import Footer from '@components/Footer.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { ViewTransitions } from 'astro:transitions';
 ---
 
 <BaseLayout title="About">
-	<head>
-        <ViewTransitions/>
-    </head>
     <main>
-		<h1>My name is <span class="text-gradient">Alv Romell</span></h1>
-        <img src="/images/AlvsPhotos.jpg" alt="">
-		<p class="instructions">
-			I work as an IT-consultant at <span><img class="nc-logo" src="src/resources/netcompany_logo.svg" alt="" style="height: 25px;"></span> in Copenhagen. In my spare time, I like to take photos.
-            Feel free to check out some of my work below.
+		<h1 class="mt-12 text-2xl md:text-6xl">My name is Alv Romell</h1>
+        <p class="mt-12 mb-6">
+			Hmm... You found this site without a link... How did you do that?
+            <br>Anyway, I'll try to write som info about me here later on - Check back later :)
+            <br>Meanwhile, here's a picture of me in Peru.
 		</p>
+        <img src="/images/AlvsPhotos.jpg" alt="Portrait of me in Peru" height="1350" width="1080">
 	</main>
+    <Footer/>
 </BaseLayout>
 
 <style>
-    nc-logo {
-        height: 100px;
-    }
-	main {
+    main {
 		margin: auto;
-		padding: 1rem;
 		width: 800px;
-		max-width: calc(100% - 2rem);
-		color: white;
-		font-size: 20px;
+		max-width: calc(100% - 6rem);
 		line-height: 1.6;
-	}
-	.astro-a {
-		position: absolute;
-		top: -32px;
-		left: 50%;
-		transform: translatex(-50%);
-		width: 220px;
 		height: auto;
-		z-index: -1;
-	}
-	h1 {
-		font-size: 4rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-bottom: 1em;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		margin-bottom: 2rem;
-		border: 1px solid rgba(var(--accent-light), 25%);
-		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
-		padding: 1.5rem;
-		border-radius: 8px;
-	}
-	.instructions code {
-		font-size: 0.8em;
-		font-weight: bold;
-		background: rgba(var(--accent-light), 12%);
-		color: rgb(var(--accent-light));
-		border-radius: 4px;
-		padding: 0.3em 0.4em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent-light));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 2rem;
-		padding: 0;
 	}
 </style>

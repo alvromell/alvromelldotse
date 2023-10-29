@@ -6,17 +6,17 @@ import Footer from "../components/Footer.astro";
 
 const albums = await getCollection("albums");
 --- 
-<Gallery title="Alv's photos" transition:animate="slide">    
+<Gallery title="Alv's photos" transition:animate="fade">    
     <main class="flex-col">
-        <div class="flex mustify-between mt-8 md:mt-16 mb-12 md:mb-16">
+        <div class="flex justify-between mt-8 md:mt-16 mb-12 md:mb-16">
             <h1 class="text-4xl md:text-6xl font-bold">photography</h1>
             <a class="inline-block text-s md:text-base ml-auto mt-4 md:mt-auto link-underline" href="/">HOME</a>
         </div>
-        <p class="mb-2">Here you can find some photos I've taken. Click the links to see the full album.</p>
-        <p class="mb-2">I hope you enjoy.</p>
+        <p class="mb-2 md:text-lg font-light">Here you can find some photos I've taken. Click the links to see the full album.
+        <br>I hope you enjoy.</p>
         <AlbumCardList albums={albums}></AlbumCardList>
     </main>
-	<Footer/>
+    <Footer/>
 </Gallery>
 
 <style>

@@ -1,22 +1,20 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Card from '../components/AlbumCard.astro';
-import Footer from '../components/Footer.astro';
-import {PERSONAL_INFO, ROUTES, SOCIAL} from '../consts';
+import {PERSONAL_INFO, SOCIAL} from '../consts';
 
 ---
 
 <BaseLayout title="Alv Romell.">
 	<div class="flex flex-col flex-grow h-full lg:max-w-4xl m-auto max-h-[44rem] max-w-3xl md:p-6 w-full">
 		<main transition:animate="slide">
-			<h1 class="text-3xl md:text-4xl font-semibold mb-4">Hi!</h1>
-			<p class="text-4xl md:text-5xl font-bold text-left mb-6">My name is <br class="brNoDisplay"><span class="text-gradient">Alv Romell</span></p>
-			<p class="relative md:text-base lg:text-xl text-slate-500">
+			<h1 class="text-3xl md:text-4xl font-medium mb-4">Hi!</h1>
+			<p class="text-4xl md:text-5xl font-semibold text-left mb-6">My name is <br class="brNoDisplay"><span class="text-gradient">Alv Romell</span></p>
+			<p class="relative md:text-base lg:text-xl text-slate-400 font-normal">
 				I work as an IT-consultant at <a href="https://netcompany.com/" target="_blank" class="font-semibold text-gradient link-underline">Netcompany</a> in Copenhagen. 
 				<br>In my spare time, I like to take photos. 
 				<br>Feel free to check out some of my pictures <a href="/photography" class="font-bold text-gradient link-underline">here</a>.
 			</p>
-			<div class="flex gap-4 mt-16 mr-auto">
+			<div class="flex gap-4 mt-16 mr-auto font-normal">
 				{SOCIAL.map(social => <a class="link-underline" href={social.href} target="_blank">{social.label}</a>)}
 			</div>
 		</main>
