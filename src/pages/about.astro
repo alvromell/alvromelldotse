@@ -6,23 +6,60 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout title="About">
     <main>
-		<h1 class="mt-12 text-2xl md:text-6xl">My name is Alv Romell</h1>
+		<h1 class="mt-12 text-2xl md:text-6xl">About</h1>
         <p class="mt-12 mb-6">
 			Hmm... You found this site without a link... How did you do that?
             <br>Anyway, I'll try to write som info about me here later on - Check back later :)
             <br>Meanwhile, here's a picture of me in Peru.
+            <br><a href="/" class="link-underline">HOME</a>
 		</p>
-        <img src="/images/AlvsPhotos.jpg" alt="Portrait of me in Peru" height="1350" width="1080">
 	</main>
-    <Footer/>
+    <Footer class="z-[1]"/>
+    <span id="gradient"></span>
 </BaseLayout>
 
 <style>
     main {
+        z-index: 1;
 		margin: auto;
 		width: 800px;
 		max-width: calc(100% - 6rem);
 		line-height: 1.6;
 		height: auto;
 	}
+    #gradient{
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        background-image: radial-gradient(circle at 50% 50%, #1f487e30, #1d346150 20%, transparent 70%);
+        overflow: hidden;
+    }
 </style>
+
+<script is:inline>
+
+    const gradient = document.getElementById('gradient');
+
+    document.addEventListener('mousemove', (e) => {
+        const mouseX = e.clientX;
+        const mouseY = e.clientY;
+        const gradientRadius = gradient.offsetWidth / 2;
+
+        const distanceToTop = mouseY;
+        const distanceToBottom = window.innerHeight - mouseY;
+        const distanceToLeft = mouseX;
+        const distanceToRight = window.innerWidth - mouseX;
+
+        const distances = [distanceToTop, distanceToBottom, distanceToLeft, distanceToRight];
+        const distanceToEdge = Math.min(...distances);
+
+        const maxSize = 500;
+        const size = Math.min(maxSize, distanceToEdge*2);
+
+        gradient.style.width = `${size}px`;
+        gradient.style.height = `${size}px`;
+        gradient.style.left = `${mouseX-gradientRadius}px`;
+        gradient.style.top = `${mouseY-gradientRadius}px`;
+    });
+</script>
