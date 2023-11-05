@@ -5,33 +5,29 @@ import {PERSONAL_INFO, SOCIAL} from '../consts';
 ---
 
 <BaseLayout title="Alv Romell.">
-	<div class="flex flex-col flex-grow h-full lg:max-w-4xl m-auto max-h-[44rem] max-w-3xl md:p-6 w-full">
-		<main transition:animate="slide">
+		<main transition:animate="slide" class="max-w-[40rem] m-auto">
 			<h1 class="text-3xl md:text-4xl font-medium mb-4">Hi!</h1>
 			<p class="text-4xl md:text-5xl font-semibold text-left mb-6">My name is <br class="brNoDisplay"><span class="text-gradient">Alv Romell</span></p>
-			<p class="relative md:text-base lg:text-xl text-slate-400 font-light">
-				I work as an IT-consultant at <a href="https://netcompany.com/" target="_blank" class="font-semibold text-gradient link-underline">Netcompany</a> in Copenhagen. 
-				<br><br>In my spare time, I like to take photos. Feel free to check out some of my pictures <a href="/photography" class="font-bold text-gradient link-underline">here</a>.
-			</p>
+			<div class="relative md:text-base lg:text-xl text-slate-400 font-light">
+				<p>
+					I work as an IT-consultant at <a href="https://netcompany.com/" target="_blank" class="font-semibold text-gradient link-underline">Netcompany</a> in Copenhagen. 
+				</p>
+				<p class="mt-2">
+					In my spare time, I like to take photos. Feel free to check out some of my pictures <a href="/photography" class="font-bold text-gradient link-underline">here</a>.
+				</p>
+			</div>
 			<div class="flex gap-4 mt-16 font-normal">
 				{SOCIAL.map(social => <a class="link-underline" href={social.href} target="_blank">{social.label}</a>)}
 			</div>
 		</main>
-		<footer class="flex flex-col items-center relative text-sm text-slate-400 font-light pb-4">
+		<footer class="flex flex-col items-center relative text-sm text-slate-400 font-light mb-8">
 			<p>© 2023 - Alv Romell</p>
 			<p>Built with <a class="link-underline" href="https://astro.build/" target="_blank">Astro</a></p>
 		</footer>
-	</div>
+	
 </BaseLayout>
 
 <style>
-	main {
-		margin: auto;
-		width: 800px;
-		max-width: calc(100% - 6rem);
-		line-height: 1.6;
-		height: auto;
-	}
 	.text-gradient {
 		background-color: rgb(var(--accent));
 		-webkit-background-clip: text;
