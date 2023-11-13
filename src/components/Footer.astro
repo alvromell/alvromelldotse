@@ -5,10 +5,10 @@ import {PERSONAL_INFO, ROUTES, SOCIAL} from '../consts';
 
 <footer class="flex flex-col gap-2 items-center text-slate-400 font-light pb-4 mt-16">
     <div class="social flex gap-3 md:gap-4">
-        {SOCIAL.map(social => <a href={social.href} target="_blank">{social.label}</a>)}
+        {SOCIAL.map(social => <a href={social.href} target="_blank" class="hover:text-slate-100 ease-linear duration-300">{social.label}</a>)}
     </div>
     <nav>
-        <a href="/">HOME</a>
+        <a href="/" class="hover:text-slate-100 ease-linear duration-300">HOME</a>
     </nav>
     <div class="relative text-sm ">
         © 2023 - Alv Romell - Built with <a class="link-underline" href="https://astro.build/" target="_blank">Astro</a>
