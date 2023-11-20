@@ -10,8 +10,8 @@ const { album } = Astro.props;
 ---
 
 <a href={"/photography/"+album.slug} class="mt-4">
-	<div class="image-container relative overflow-hidden inline-block hover:shadow-2xl">
-		<Image src={album.data.heroImage} alt={"Album link: "+album.data.description}/>
+	<div class="image-container relative overflow-hidden inline-block hover:shadow-2xl fadeIn-image-animation">
+		<Image src={album.data.heroImage.img} alt={"Album link: "+album.data.description} transition:name="hero"/>
 		<div class="description-overlay flex">
 			<span class="description mt-auto ml-4 md:ml-8 mb-4 md:mb-6 mr-8 md:mr-16">
 				<h2 class="text-xl md:text-4xl font-semibold">{album.data.title}</h2>
