@@ -10,7 +10,7 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<BaseLayout title={title} transition:animate="fade">
+<BaseLayout title={title} transition:animate="initial">
     <Header/>
     <slot/>
     <Footer/>
