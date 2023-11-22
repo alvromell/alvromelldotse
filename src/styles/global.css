@@ -58,7 +58,7 @@ html, body {
 }
 
 .fadeInUp-animation {
-    animation: 2.5s fadeInUp;
+    animation: 3s fadeInUp;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
