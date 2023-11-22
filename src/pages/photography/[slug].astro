@@ -27,16 +27,17 @@ export const getStaticPaths = async () => {
 const { album } = Astro.props;
 ---
 
-<Gallery title={"Alvs pictures from " + album.data.title} transition:animate="fade">
-    <a href="/photography" aria-label="Back to albums" class="flex gap-2 text-slate-400 mt-4 font-light hover:text-slate-100 ease-linear duration-500">
-        <img class="translate-y-[-2px]" src="/left-arrow.svg" height="10" width="10">
+<Gallery title={"Alvs pictures from " + album.data.title}>
+    <a href="/photography" aria-label="Back to albums" class="group flex gap-2 text-slate-400 mt-4 font-light hover:text-slate-100 ease-linear duration-500">
+        <img class="translate-y-[-2px] group-hover:-translate-x-1 transition ease duration-500" src="/left-arrow.svg" height="10" width="10">
         <span>Back to albums</span>
     </a>
     <h1 class="text-2xl md:text-3xl lg:text-5xl font-bold mt-6">{album.data.title}</h1>
     <span class="text-slate-400 font-light md:mt-2">{album.data.date}</span>
     <h2 class="md:text-xl mt-4 font-light">{album.data.description}</h2>
-    <main>
-        {album.data.images.map(img => (<Image alt={img.alt} src={img.img} class="mt-4 md:mt-8 p-2 bg-slate-50"/>))}
+    <main transition:animate="initial" >
+        <Image alt={album.data.heroImage.alt} src={album.data.heroImage.img} class="mt-4 md:mt-8 bg-slate-50" transition:name="heroImage" transition:animate="initial"/>
+        {album.data.images.map(img => (<Image alt={img.alt} src={img.img} class="mt-4 md:mt-8 bg-slate-50 fadeIn-image-animation"/>))}
     </main>
 </Gallery>
 

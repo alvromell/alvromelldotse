@@ -5,7 +5,10 @@ const albumCollection = defineCollection({
         title: z.string(),
         description: z.string(),
         date: z.string(),
-        heroImage: image(),
+        heroImage: z.object({
+            img: image(),
+            alt: z.string()
+        }),
         images: z.array(z.object({
             img: image(),
             alt: z.string()

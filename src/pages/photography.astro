@@ -14,7 +14,7 @@ const albums = await getCollection("albums");
         </div>
         <p class="mb-2 md:text-lg font-light">Here you can find some photos I've taken. Click the links to see the full album.
         <br>I hope you enjoy.</p>
-        <AlbumCardList albums={albums}></AlbumCardList>
+        <AlbumCardList albums={albums} transition:name="heroImage"></AlbumCardList>
     </main>
     <Footer/>
 </Gallery>
