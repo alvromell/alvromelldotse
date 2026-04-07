@@ -7,38 +7,60 @@ export const albumType = defineType({
     fields: [
         defineField({
             name: "title",
-            type: "string"
+            title: "Title",
+            type: "string",
+            validation: (rule) => rule.required()
+        }),
+        defineField({
+            name: "slug",
+            title: "Slug",
+            type: "slug",
+            options: { source: "title" },
+            validation: (rule) => rule.required()
         }),
         defineField({
             name: "description",
+            title: "Description",
             type: "text"
         }),
         defineField({
             name: "date",
-            type: "date"
+            title: "Date",
+            type: "date",
+            validation: (rule) => rule.required()
         }),
         defineField({
             name: "coverImage",
-            type: "image"
+            title: "Cover Image",
+            type: "image",
+            options: { hotspot: true },
+            fields: [
+                {
+                    name: "alt",
+                    type: "string",
+                    title: "Alternative text",
+                }
+            ]
         }),
         defineField({
             name: "photos",
+            title: "Photos",
             type: "array",
-            of: [{ 
+            of: [{
                 type: "image",
                 options: {
                     hotspot: true
                 },
                 fields: [
                     {
-                    name: 'alt',
-                    type: 'string',
-                    title: 'Alternative text',
+                        name: "alt",
+                        type: "string",
+                        title: "Alternative text",
                     },
                     {
-                    name: 'caption',
-                    type: 'string',
-                    title: 'Caption',
+                        name: "caption",
+                        type: "string",
+                        title: "Caption",
                     }
                 ]
             }]
@@ -46,8 +68,8 @@ export const albumType = defineType({
     ],
     preview: {
         select: {
-            title: "name",
-            media: "image",
+            title: "title",
+            media: "coverImage",
         },
     },
 })

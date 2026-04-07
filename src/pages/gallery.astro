@@ -1,0 +1,28 @@
+---
+import { type QueryParams } from "sanity";
+import { sanityClient } from "sanity:client";
+import BaseLayout from "src/layouts/BaseLayout.astro";
+
+const content = await sanityClient.fetch(
+    `*[_type == "album"]{
+        title,
+        description,
+        date,
+        coverImage
+    }`,
+) as {
+    title: string;
+    description: string;
+    date: string;
+    coverImage: { asset: { url: string } };
+}[];
+
+console.log("ref:" + content[0].coverImage.asset._ref);
+---
+<BaseLayout title="Galley">
+   <h1 class="mt-20">Title</h1>
+   <p>{content[0]?.title ?? 'Noting'}</p>
+   <p>{content[0]?.description ?? 'Noting'}</p>
+   <div class="coverImage">
+      <img src={content[0].coverImage.asset.url} alt={content[0]?.title} />
+</BaseLayout>
