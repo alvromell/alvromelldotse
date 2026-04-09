@@ -1,5 +1,5 @@
 ---
-import { type QueryParams } from "sanity";
+import Album from "@components/Album.astro";
 import { sanityClient } from "sanity:client";
 import BaseLayout from "src/layouts/BaseLayout.astro";
 
@@ -8,21 +8,22 @@ const content = await sanityClient.fetch(
         title,
         description,
         date,
-        coverImage
+        coverImage{
+            asset->{url},
+            alt
+        }
     }`,
 ) as {
     title: string;
     description: string;
     date: string;
-    coverImage: { asset: { url: string } };
+    coverImage: { asset: { url: string }; alt: string };
 }[];
-
-console.log("ref:" + content[0].coverImage.asset._ref);
 ---
-<BaseLayout title="Galley">
-   <h1 class="mt-20">Title</h1>
-   <p>{content[0]?.title ?? 'Noting'}</p>
-   <p>{content[0]?.description ?? 'Noting'}</p>
+<BaseLayout title={content[0]?.title ?? 'Random gallery'}>
+   <h1 class="mt-20">{content[0]?.title ?? 'Nothing'}</h1>
+   <p>{content[0]?.description ?? 'Nothing'}</p>
    <div class="coverImage">
-      <img src={content[0].coverImage.asset.url} alt={content[0]?.title} />
+      <img src={content[0].coverImage.asset.url} alt={content[0].coverImage.alt ?? content[0].title} />
+   </div>
 </BaseLayout>
