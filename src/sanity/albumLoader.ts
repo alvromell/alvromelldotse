@@ -1,20 +1,14 @@
-import { createClient } from "@sanity/client";
+import { sanityClient } from "sanity:client";
 import type { Loader } from "astro/loaders";
 
 export function sanityAlbumLoader(): Loader {
     return {
         name: "sanity-album-loader",
         load: async ({ store, logger }) => {
-            const client = createClient({
-                projectId: import.meta.env.PUBLIC_SANITY_PROJECT_ID,
-                dataset: import.meta.env.PUBLIC_SANITY_DATASET,
-                useCdn: false,
-                apiVersion: "2026-04-01",
-            });
 
             logger.info("Fetching albums from Sanity...");
 
-            const albums = await client.fetch(`
+            const albums = await sanityClient.fetch(`
                 *[_type == "album"]{
                     title,
                     slug,
