@@ -5,7 +5,6 @@ import tailwind from "@astrojs/tailwind";
 import sanity from "@sanity/astro";
 import react from "@astrojs/react";
 
-// https://astro.build/config
 export default defineConfig({
   output: 'static', 
   integrations: [
@@ -14,7 +13,7 @@ export default defineConfig({
       projectId: 'izt4cyej',
       dataset: 'production',
       useCdn: false, 
-      apiVersion: "2026-03-01", 
+      apiVersion: "2026-04-01", 
       studioBasePath: '/studio'
     }), 
     react()
