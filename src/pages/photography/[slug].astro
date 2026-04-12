@@ -3,6 +3,8 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import {Image} from 'astro:assets';
 import Gallery from "../../layouts/Gallery.astro";
 
+export const prerender = true;
+
 type Props = {
     album: CollectionEntry<"albums">
 }

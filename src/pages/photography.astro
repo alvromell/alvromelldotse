@@ -4,6 +4,8 @@ import AlbumCardList from "../components/AlbumCardList.astro";
 import { getCollection } from 'astro:content';
 import Footer from "../components/Footer.astro";
 
+export const prerender = true;
+
 const albums = await getCollection("albums");
 --- 
 <Gallery title="Alv's photos" transition:animate="fade">    
