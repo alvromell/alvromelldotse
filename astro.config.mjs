@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config';
-
+import netlify from '@astrojs/netlify';
 import tailwind from "@astrojs/tailwind";
 
 import sanity from "@sanity/astro";
@@ -19,6 +19,7 @@ export default defineConfig({
     }), 
     react()
   ],
+  adapter: netlify(),
   vite: {
     build: {
       rollupOptions: {
