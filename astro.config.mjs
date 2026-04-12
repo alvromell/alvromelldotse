@@ -19,12 +19,5 @@ export default defineConfig({
     }), 
     react()
   ],
-  adapter: netlify(),
-  vite: {
-    build: {
-      rollupOptions: {
-        external: ['tslib'],
-      },
-    },
-  },
+  adapter: netlify()
 });
