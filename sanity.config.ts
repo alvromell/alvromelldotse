@@ -5,6 +5,7 @@ import { schema } from "./src/sanity/schemaTypes";
 export default defineConfig({
   projectId: import.meta.env.PUBLIC_SANITY_PROJECT_ID,
   dataset: import.meta.env.PUBLIC_SANITY_DATASET,
+  basePath: '/studio',
   plugins: [
     structureTool()
   ],
