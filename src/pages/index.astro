@@ -29,14 +29,14 @@ export const prerender = true;
 
 <script is:inline>
   (function () {
-    var ANIM_KEY = 'landingAnimationShownAt';
-    var ANIM_COOLDOWN = 15 * 1000;
-    var now = Date.now();
-    var lastShown = sessionStorage.getItem(ANIM_KEY);
+    const ANIM_KEY = 'landingAnimationShownAt';
+    const ANIM_COOLDOWN = 15 * 1000;
+    const now = Date.now();
+    const lastShown = sessionStorage.getItem(ANIM_KEY);
 
     if (lastShown && now - Number(lastShown) <= ANIM_COOLDOWN) {
-      var main = document.querySelector('main');
-      var footer = document.querySelector('footer');
+      const main = document.querySelector('main');
+      const footer = document.querySelector('footer');
       if (main) main.classList.remove('fadeInUp-animation');
       if (footer) footer.classList.remove('fadeIn-footer-animation');
     } 
