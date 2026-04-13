@@ -27,6 +27,25 @@ export const prerender = true;
 	</footer>
 </BaseLayout>
 
+<script is:inline>
+  (function () {
+    const ANIM_KEY = 'landingAnimationShownAt';
+    const ANIM_COOLDOWN = 15 * 1000;
+    const now = Date.now();
+    const lastShown = sessionStorage.getItem(ANIM_KEY);
+
+    if (lastShown && now - Number(lastShown) <= ANIM_COOLDOWN) {
+      const main = document.querySelector('main');
+      const footer = document.querySelector('footer');
+      if (main) main.classList.remove('fadeInUp-animation');
+      if (footer) footer.classList.remove('fadeIn-footer-animation');
+    } 
+	else {
+      sessionStorage.setItem(ANIM_KEY, String(now));
+    }
+  })();
+</script>
+
 <style>
 	.text-gradient {
 		background-color: rgb(var(--accent));
