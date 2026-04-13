@@ -1,0 +1,14 @@
+---
+import BaseLayout from "src/layouts/BaseLayout.astro";
+
+import { getCollection } from "astro:content";
+const albums = await getCollection("sanityAlbums");
+
+---
+<BaseLayout title={'Alv\'s  gallery'}>
+   {albums.map(album => (<h1 class="mt-20">{album.data.title ?? 'Nothing'}</h1>
+   <p>{album.data.description ?? 'Nothing'}</p>
+   <div class="coverImage">
+      <img src={album.data.coverImage.asset.url} alt={album.data.coverImage.alt ?? album.data.title} />
+   </div>))}
+</BaseLayout>
